@@ -1,0 +1,15 @@
+.control-panel {
+  margin-bottom: 2rem;
+  form {
+    display: flex;
+    flex-flow: row;
+    height: 1rem;
+    select {
+      margin-right: 1rem;
+      padding: 0.5rem;
+    }
+    input {
+      padding: 0.5rem;
+    }
+  }
+}

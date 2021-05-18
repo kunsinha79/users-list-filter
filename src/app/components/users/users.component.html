@@ -1,0 +1,38 @@
+<div *ngIf="!isLoading && !isError; else loading">
+  <app-users-filter (filterOptions)="filterUsers($event)"></app-users-filter>
+  <div class="users">
+    <div class="users-list-wrapper" >
+      <table class="users-list">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>User Name</th>
+            <th>E-mail</th>
+            <th>Phone</th>
+            <th>Website</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of filteredUsers">
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.website}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div> 
+</div>
+<ng-template #loading> 
+  <div *ngIf="!isError; else error" class="users">
+    <p>Fetching users....</p> 
+  </div>
+</ng-template>
+
+<ng-template #error> 
+  <div class="users">
+    <p>An error occured while fetching users...</p> 
+  </div>
+</ng-template>
